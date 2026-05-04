@@ -29,9 +29,31 @@ const SectionTracker = ({ id, setActiveSection, children, amount = 0.5 }: { id: 
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Determine if on mobile device for specific chair scaling/positioning
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile(); // initial check
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Define exact "docking" states for the chair for each section
-  const chairVariants = {
+  const chairVariants = isMobile ? {
+    hero: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0 },
+    booking: { scale: 0.6, x: "0vw", y: "-10vh", rotate: -5 },
+    model1: { scale: 0.7, x: "0vw", y: "-5vh", rotate: -5 },
+    model2: { scale: 0.5, x: "0vw", y: "15vh", rotate: 10 },
+    model3: { scale: 0.6, x: "0vw", y: "-5vh", rotate: -10 },
+    pricing: { scale: 0.4, x: "0vw", y: "15vh", rotate: 15 },
+    instagram: { scale: 0.4, x: "0vw", y: "-10vh", rotate: -15 },
+    location: { scale: 0.4, x: "0vw", y: "10vh", rotate: 5 },
+    footer: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0 } 
+  } : {
+
     hero: { scale: 1, x: "0vw", y: "0vh", rotate: 0 },
     booking: { scale: 0.7, x: "-25vw", y: "0vh", rotate: -5 },
     model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5 },

@@ -7,23 +7,27 @@ import { Volume2, VolumeX, Menu, X } from "lucide-react";
 export default function Header() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(true);
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Attempt to autoplay on mount
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3; // Soft background volume
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch((error) => {
-            console.log("Autoplay prevented by browser. User interaction required.");
-            setIsPlaying(false);
-          });
-      }
+    // Check if user previously accepted/declined music in this session
+    const hasAnswered = sessionStorage.getItem("musicPromptAnswered");
+    if (hasAnswered) {
+      setShowPrompt(false);
     }
   }, []);
+
+  const handleMusicDecision = (play) => {
+    setShowPrompt(false);
+    sessionStorage.setItem("musicPromptAnswered", "true");
+    
+    if (play && audioRef.current) {
+      audioRef.current.volume = 0.3;
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   const toggleMusic = () => {
     if (audioRef.current) {
@@ -45,6 +49,46 @@ export default function Header() {
 
   return (
     <>
+      {/* Audio Prompt Overlay */}
+      <AnimatePresence>
+        {showPrompt && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[300] bg-white/80 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center"
+          >
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="bg-white border border-gray-100 shadow-2xl rounded-3xl p-8 md:p-12 max-w-md w-full"
+            >
+              <h3 className="text-2xl font-light text-[#0F172A] mb-4">
+                Enhance your <span className="italic text-pink-300 font-serif">experience.</span>
+              </h3>
+              <p className="text-sm text-[#64748B] mb-8 leading-relaxed">
+                We have curated a beautiful ambient soundtrack for your visit. Would you like to play music?
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => handleMusicDecision(true)}
+                  className="bg-[#0F172A] text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-pink-300 hover:text-[#0F172A] transition-colors"
+                >
+                  Yes, Play
+                </button>
+                <button 
+                  onClick={() => handleMusicDecision(false)}
+                  className="bg-transparent border border-gray-200 text-[#0F172A] px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors"
+                >
+                  No, Thanks
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Audio Element */}
       <audio ref={audioRef} src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/ReelAudio-85558.mp3" loop />
 
