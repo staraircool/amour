@@ -4,6 +4,8 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+
 export const metadata: Metadata = {
   title: "Amour Hair Salon | Premium Aesthetic Design",
   description: "Elevating the standard of hair artistry with unparalleled service.",
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

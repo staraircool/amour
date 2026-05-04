@@ -77,19 +77,7 @@ export default function Hero() {
         </div>
       </header>
 
-      {/* 3. The Chair (Centerpiece, sitting in the sky) */}
-      <motion.div 
-        id="hero-chair"
-        className="absolute inset-0 z-[5] flex justify-center items-end pb-[28vh] md:pb-[25vh] pointer-events-none"
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <img
-          src="/chair.png"
-          alt="Amour Salon Chair"
-          className="h-[45vh] md:h-[60vh] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
-        />
-      </motion.div>
+
 
       {/* 4. Real Cloud Image (Static, Lowered to cover only legs) */}
       <div className="absolute bottom-0 left-0 right-0 z-[10] pointer-events-none flex items-end translate-y-[25%] md:translate-y-[15%]">
