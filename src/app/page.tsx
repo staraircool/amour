@@ -43,26 +43,26 @@ export default function Home() {
 
   // Define exact "docking" states for the chair for each section
   const chairVariants = isMobile ? {
-    hero: { scale: 0.8, x: "0vw", y: "25vh", rotate: 0 },
-    booking: { scale: 0.6, x: "0vw", y: "-10vh", rotate: -5 },
-    model1: { scale: 0.7, x: "0vw", y: "-5vh", rotate: -5 },
-    model2: { scale: 0.5, x: "0vw", y: "15vh", rotate: 10 },
-    model3: { scale: 0.6, x: "0vw", y: "-5vh", rotate: -10 },
-    pricing: { scale: 0.4, x: "0vw", y: "15vh", rotate: 15 },
-    instagram: { scale: 0.4, x: "0vw", y: "-10vh", rotate: -15 },
-    location: { scale: 0.4, x: "0vw", y: "10vh", rotate: 5 },
-    footer: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0 } 
+    hero: { scale: 0.8, x: "0vw", y: "25vh", rotate: 0, opacity: 1 },
+    booking: { scale: 0.6, x: "0vw", y: "-10vh", rotate: -5, opacity: 0 },
+    model1: { scale: 0.7, x: "0vw", y: "-5vh", rotate: -5, opacity: 1 },
+    model2: { scale: 0.5, x: "0vw", y: "15vh", rotate: 10, opacity: 1 },
+    model3: { scale: 0.6, x: "0vw", y: "-5vh", rotate: -10, opacity: 1 },
+    pricing: { scale: 0.4, x: "0vw", y: "15vh", rotate: 15, opacity: 0 },
+    instagram: { scale: 0.4, x: "0vw", y: "-10vh", rotate: -15, opacity: 1 },
+    location: { scale: 0.4, x: "0vw", y: "10vh", rotate: 5, opacity: 1 },
+    footer: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0, opacity: 0 } 
   } : {
 
-    hero: { scale: 1, x: "0vw", y: "20vh", rotate: 0 },
-    booking: { scale: 0.7, x: "-25vw", y: "0vh", rotate: -5 },
-    model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5 },
-    model2: { scale: 0.6, x: "25vw", y: "-5vh", rotate: 10 },
-    model3: { scale: 0.8, x: "-25vw", y: "5vh", rotate: -10 },
-    pricing: { scale: 0.5, x: "30vw", y: "0vh", rotate: 15 },
-    instagram: { scale: 0.5, x: "-30vw", y: "0vh", rotate: -15 },
-    location: { scale: 0.5, x: "30vw", y: "0vh", rotate: 5 },
-    footer: { scale: 1, x: "0vw", y: "0vh", rotate: 0 }
+    hero: { scale: 1, x: "0vw", y: "20vh", rotate: 0, opacity: 1 },
+    booking: { scale: 0.7, x: "-25vw", y: "0vh", rotate: -5, opacity: 0 },
+    model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5, opacity: 1 },
+    model2: { scale: 0.6, x: "25vw", y: "-5vh", rotate: 10, opacity: 1 },
+    model3: { scale: 0.8, x: "-25vw", y: "5vh", rotate: -10, opacity: 1 },
+    pricing: { scale: 0.5, x: "30vw", y: "0vh", rotate: 15, opacity: 0 },
+    instagram: { scale: 0.5, x: "-30vw", y: "0vh", rotate: -15, opacity: 1 },
+    location: { scale: 0.5, x: "30vw", y: "0vh", rotate: 5, opacity: 1 },
+    footer: { scale: 1, x: "0vw", y: "0vh", rotate: 0, opacity: 1 }
   };
 
   return (
