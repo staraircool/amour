@@ -5,91 +5,19 @@ import { ArrowUpRight, Heart } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen bg-[#0A0D14] overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full h-screen bg-[#87CEEB] overflow-hidden flex flex-col justify-between">
       
-      {/* 1. Deep "Harry Potter" Magical Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#131B2B] via-[#0A0D14] to-[#040609] opacity-100 z-0"></div>
+      {/* 1. Simple Sky Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#87CEEB] via-[#B0E2FF] to-white z-0"></div>
 
-      {/* Deep Background Magical Smoke (Blue/Teal vibes) */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vh] bg-[#1E3A5F]/30 blur-[120px] rounded-full"
-        />
-        <motion.div
-          animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[40%] right-[10%] w-[40vw] h-[40vh] bg-[#3B284A]/20 blur-[100px] rounded-full"
-        />
-      </div>
-
-      {/* Floating Magic Sparks (Golden) */}
-      <div className="absolute inset-0 z-[2] pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -300, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-              opacity: [0, 0.8, 0],
-              scale: [0.5, 1.5, 0.5],
-            }}
-            transition={{
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 1.5,
-            }}
-            className="absolute bg-[#F5D061] rounded-full blur-[1px]"
-            style={{
-              width: `${Math.random() * 4 + 1}px`,
-              height: `${Math.random() * 4 + 1}px`,
-              left: `${5 + Math.random() * 90}%`,
-              top: `${50 + Math.random() * 50}%`,
-              boxShadow: "0 0 10px 2px rgba(245, 208, 97, 0.6)",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* 2. The Chair */}
-      <motion.div 
-        id="hero-chair"
-        className="absolute inset-0 z-[5] flex justify-center items-end pb-16 md:items-center md:pb-0 pointer-events-none"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <img
-          src="/chair.png"
-          alt="Amour Salon Chair"
-          className="h-[55vh] md:h-[75vh] w-auto object-contain drop-shadow-[0_40px_50px_rgba(0,0,0,0.8)]"
-          style={{ filter: "drop-shadow(0 0 20px rgba(0,0,0,0.5))" }}
-        />
-      </motion.div>
-
-      {/* 3. Golden Magic Smoke specifically behind the text to make it POP over the chair */}
-      <div className="absolute inset-x-0 bottom-0 h-[60vh] z-[10] flex justify-center items-end pointer-events-none">
-        <motion.div
-          animate={{ opacity: [0.7, 0.9, 0.7], scale: [1, 1.05, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[120vw] h-full bg-gradient-to-t from-[#0A0D14] via-[#0A0D14]/90 to-transparent blur-[40px]"
-        />
-        <motion.div
-          animate={{ x: [-20, 20, -20], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 w-[80vw] h-[40vh] bg-[#F5D061]/20 blur-[100px] rounded-full"
-        />
-      </div>
-
-      {/* 4. Header (Golden / White) */}
-      <header className="relative z-20 w-full px-8 py-6 flex justify-between items-center text-[#F5D061]">
+      {/* 2. Header (Clean Dark Text for Sky Contrast) */}
+      <header className="relative z-20 w-full px-8 py-6 flex justify-between items-center text-[#1E293B]">
         <div className="flex-1"></div>
         <div className="flex flex-col items-center justify-center flex-1">
-          <h1 className="text-4xl tracking-widest font-light lowercase text-[#F5D061]">
+          <h1 className="text-4xl tracking-widest font-light lowercase">
             a m o u r
           </h1>
-          <p className="text-[10px] tracking-widest opacity-70 mt-1 uppercase text-[#F5D061]/80">
+          <p className="text-[10px] tracking-widest opacity-70 mt-1 uppercase">
             hair salon & styling
           </p>
         </div>
@@ -101,82 +29,119 @@ export default function Hero() {
         </div>
       </header>
 
-      {/* 5. Middle Content: Typography & Videos */}
-      <div className="relative z-20 flex-1 w-full h-full pointer-events-none">
-        
-        {/* Center Typography (Glowing White/Gold) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-32 md:pb-40">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-white text-center leading-[1.1] z-10 drop-shadow-[0_0_15px_rgba(245,208,97,0.3)]">
-            The magic of <br />
-            <span className="font-medium italic text-transparent bg-clip-text bg-gradient-to-r from-[#F5D061] to-[#D4A017] drop-shadow-[0_0_20px_rgba(245,208,97,0.5)]">
-              transformation.
-            </span>
-          </h2>
-          <p className="text-white/80 mt-6 tracking-wide text-sm font-light max-w-sm text-center drop-shadow-md">
-            Where masterful technique meets unparalleled luxury. Take your seat.
-          </p>
-        </div>
+      {/* 3. Center Typography (Moved to the TOP, above the chair) */}
+      <div className="absolute top-[18%] inset-x-0 flex flex-col items-center justify-start z-20 pointer-events-none">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#0F172A] text-center leading-[1.1] drop-shadow-sm">
+          Elevate your <br />
+          <span className="font-medium italic text-white drop-shadow-md">aesthetic.</span>
+        </h2>
+        <p className="text-[#334155] mt-4 tracking-wide text-sm font-light max-w-sm text-center">
+          Step into the clouds and experience a new level of styling.
+        </p>
+      </div>
 
-        {/* Left Video Card: Magical Glowing Frame */}
+      {/* 4. The Chair (Centerpiece) */}
+      <motion.div 
+        id="hero-chair"
+        className="absolute inset-0 z-[5] flex justify-center items-end pb-[15vh] md:items-center md:pb-0 pointer-events-none"
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <img
+          src="/chair.png"
+          alt="Amour Salon Chair"
+          className="h-[55vh] md:h-[70vh] w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)]"
+        />
+      </motion.div>
+
+      {/* 5. Clouds covering the chair's legs */}
+      <div className="absolute bottom-0 inset-x-0 h-[40vh] z-[10] pointer-events-none flex items-end justify-center overflow-hidden">
+        {/* Giant soft white/blue orbs simulating thick fluffy clouds */}
+        <motion.div 
+          animate={{ x: [-30, 30, -30] }} 
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} 
+          className="absolute bottom-[-20%] left-[-15%] w-[70vw] h-[50vh] bg-white rounded-full blur-[50px] opacity-100" 
+        />
+        <motion.div 
+          animate={{ x: [40, -20, 40] }} 
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} 
+          className="absolute bottom-[-15%] right-[-10%] w-[80vw] h-[55vh] bg-white rounded-full blur-[60px] opacity-100" 
+        />
+        <motion.div 
+          animate={{ x: [-20, 20, -20] }} 
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} 
+          className="absolute bottom-[-5%] left-[10%] w-[60vw] h-[40vh] bg-[#F0F8FF] rounded-full blur-[40px] opacity-90" 
+        />
+        <motion.div 
+          animate={{ x: [10, -30, 10] }} 
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} 
+          className="absolute bottom-[5%] right-[20%] w-[40vw] h-[30vh] bg-white rounded-full blur-[35px] opacity-80" 
+        />
+      </div>
+
+      {/* 6. Middle Content: Video Cards (Airy/Cloud Aesthetic) */}
+      <div className="absolute inset-0 z-20 flex-1 w-full h-full pointer-events-none">
+        
+        {/* Left Video Card: Cloud Glassmorphism */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute top-[12%] left-[2%] md:left-[8%] w-48 md:w-72 aspect-square pointer-events-auto group"
+          className="absolute top-[30%] md:top-[40%] left-[2%] md:left-[8%] w-48 md:w-72 aspect-square pointer-events-auto group"
         >
-          <div className="w-full h-full p-1.5 bg-[#F5D061]/5 backdrop-blur-md rounded-tr-[4rem] rounded-bl-[4rem] rounded-tl-[1.5rem] rounded-br-[1.5rem] shadow-[0_0_30px_rgba(245,208,97,0.15)] border border-[#F5D061]/30 group-hover:border-[#F5D061]/60 transition-colors">
+          <div className="w-full h-full p-2 bg-white/40 backdrop-blur-xl rounded-tr-[4rem] rounded-bl-[4rem] rounded-tl-[1.5rem] rounded-br-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/60 group-hover:border-white transition-colors">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-xl rounded-br-xl opacity-90"
+              className="w-full h-full object-cover rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-xl rounded-br-xl"
               src="/hero-video1.mp4"
             />
           </div>
-          <div className="absolute top-6 right-6 w-10 h-10 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-black border border-[#F5D061]/50 transition-all shadow-[0_0_15px_rgba(245,208,97,0.4)]">
-            <ArrowUpRight className="w-5 h-5 text-[#F5D061]" />
+          <div className="absolute top-6 right-6 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white border border-white transition-all shadow-lg">
+            <ArrowUpRight className="w-5 h-5 text-[#0F172A]" />
           </div>
         </motion.div>
 
-        {/* Right Video Card: Hovering Portal Effect */}
+        {/* Right Video Card: Soft Air Border */}
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="absolute top-[25%] md:top-[30%] right-[2%] md:right-[8%] w-40 md:w-64 aspect-[3/4] pointer-events-auto group"
+          className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-40 md:w-64 aspect-[3/4] pointer-events-auto group"
         >
-          <div className="absolute -inset-3 border border-[#F5D061]/30 rounded-[2rem] transform translate-x-3 translate-y-3 z-0 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 shadow-[0_0_20px_rgba(245,208,97,0.1)]"></div>
-          <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/10">
+          <div className="absolute -inset-3 border border-white/60 rounded-[2rem] transform translate-x-3 translate-y-3 z-0 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>
+          <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/40">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover opacity-90"
+              className="w-full h-full object-cover"
               src="/hero-video2.mp4"
             />
-            <div className="absolute bottom-4 left-4 w-10 h-10 md:w-12 md:h-12 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-black transition-colors border border-[#F5D061]/40 shadow-[0_0_15px_rgba(245,208,97,0.4)]">
-              <Heart className="w-5 h-5 text-[#F5D061]" />
+            <div className="absolute bottom-4 left-4 w-10 h-10 md:w-12 md:h-12 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-colors border border-white shadow-lg">
+              <Heart className="w-5 h-5 text-[#0F172A]" />
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* 6. Bottom Left CTA */}
-      <div className="absolute bottom-12 left-6 md:left-10 z-30 flex flex-col items-start gap-4">
-        <p className="text-white/90 text-sm font-medium w-40 md:w-48 leading-snug drop-shadow-md">
-          Ready to experience the magic?
+      {/* 7. Bottom Left CTA (Placed high enough to be above the dense clouds) */}
+      <div className="absolute bottom-16 left-6 md:left-10 z-30 flex flex-col items-start gap-4">
+        <p className="text-[#0F172A] text-sm font-medium w-40 md:w-48 leading-snug drop-shadow-sm">
+          Ready to float on air?
         </p>
-        <button className="bg-gradient-to-r from-[#D4A017] to-[#F5D061] text-black border-none px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(245,208,97,0.4)]">
+        <button className="bg-white/90 backdrop-blur-md text-[#0F172A] border border-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-white transition-colors shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
           book your chair
         </button>
       </div>
 
-      {/* 7. Marquee */}
-      <div className="absolute bottom-0 w-full overflow-hidden whitespace-nowrap bg-[#040609]/80 backdrop-blur-sm py-1.5 z-30 border-t border-[#F5D061]/10">
+      {/* 8. Marquee */}
+      <div className="absolute bottom-0 w-full overflow-hidden whitespace-nowrap bg-white/50 backdrop-blur-md py-1.5 z-30 border-t border-white/80">
         <motion.div 
-          className="flex gap-10 items-center text-[10px] uppercase tracking-[0.3em] text-[#F5D061]/60 font-medium"
+          className="flex gap-10 items-center text-[10px] uppercase tracking-[0.3em] text-[#64748B] font-medium"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ ease: "linear", duration: 30, repeat: Infinity }}
         >
