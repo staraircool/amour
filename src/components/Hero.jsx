@@ -91,26 +91,32 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* 4. Full-Width Rolling Smoke/Fog across the bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-[45vh] z-[10] pointer-events-none overflow-hidden">
-        {/* Deep, thick base smoke */}
-        <motion.div 
-          animate={{ x: ["-10%", "0%", "-10%"] }} 
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 left-[-20%] w-[150vw] h-[50vh] bg-gradient-to-t from-white via-white/95 to-transparent blur-[50px]"
-        />
-        {/* Right-to-left sweeping fog layer */}
+      {/* 4. Real Cloud Image Smoke across the bottom */}
+      <div className="absolute bottom-[-5%] md:bottom-[-10%] inset-x-0 z-[10] pointer-events-none flex items-end overflow-hidden h-[50vh]">
         <motion.div 
           animate={{ x: ["0%", "-10%", "0%"] }} 
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-20%] w-[160vw] h-[45vh] bg-gradient-to-t from-[#F0F8FF] via-white/90 to-transparent blur-[60px]"
-        />
-        {/* Subtle mid-layer mist */}
+          className="absolute bottom-0 left-0 w-[150vw] md:w-[120vw] min-w-[1200px]"
+        >
+          <img 
+            src="/cloud.png" 
+            alt="Rolling Cloud" 
+            className="w-full h-auto object-cover opacity-95 drop-shadow-xl"
+          />
+        </motion.div>
+        
+        {/* Secondary layer to add more depth/volume */}
         <motion.div 
           animate={{ x: ["-5%", "5%", "-5%"] }} 
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 left-0 w-[120vw] h-[35vh] bg-gradient-to-t from-white to-transparent blur-[40px] opacity-80"
-        />
+          transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-5%] left-[-10%] w-[180vw] md:w-[150vw] min-w-[1500px]"
+        >
+          <img 
+            src="/cloud.png" 
+            alt="Rolling Cloud Foreground" 
+            className="w-full h-auto object-cover opacity-80 drop-shadow-lg"
+          />
+        </motion.div>
       </div>
 
       {/* 5. Center Typography (Placed perfectly ON the smoke below the chair) */}
