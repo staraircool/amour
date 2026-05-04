@@ -9,7 +9,7 @@ export default function Footer() {
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-100/50 via-blue-50/50 to-transparent rounded-full pointer-events-none z-0"></div>
 
-      <div className="max-w-[90rem] mx-auto px-4 md:px-10 flex flex-col relative z-10 min-h-[50vh] pb-64 md:pb-0">
+      <div className="max-w-[90rem] mx-auto px-4 md:px-10 flex flex-col relative z-10 min-h-[50vh]">
         
         {/* Top Section - CTA */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-16">

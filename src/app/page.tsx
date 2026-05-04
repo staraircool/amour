@@ -14,7 +14,7 @@ import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 
 // A wrapper to track which section is currently active
-const SectionTracker = ({ id, setActiveSection, children, amount = 0.5 }: { id: string, setActiveSection: (id: string) => void, children: React.ReactNode, amount?: number }) => {
+const SectionTracker = ({ id, setActiveSection, children, amount = 0.2 }: { id: string, setActiveSection: (id: string) => void, children: React.ReactNode, amount?: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount }); 
   
