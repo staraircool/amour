@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Hero from "@/components/Hero";
-import PhilosophySection from "@/components/PhilosophySection";
 import ModelOneSection from "@/components/ModelOneSection";
 import ModelTwoSection from "@/components/ModelTwoSection";
 import ModelThreeSection from "@/components/ModelThreeSection";
@@ -32,8 +31,7 @@ export default function Home() {
   // Define exact "docking" states for the chair for each section
   const chairVariants = {
     hero: { scale: 1, x: "0vw", y: "0vh", rotate: 0 },
-    philosophy: { scale: 0.6, x: "25vw", y: "0vh", rotate: 5 },
-    model1: { scale: 0.8, x: "-25vw", y: "5vh", rotate: -5 },
+    model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5 },
     model2: { scale: 0.6, x: "25vw", y: "-5vh", rotate: 10 },
     model3: { scale: 0.8, x: "-25vw", y: "5vh", rotate: -10 },
     pricing: { scale: 0.5, x: "30vw", y: "0vh", rotate: 15 },
@@ -68,10 +66,6 @@ export default function Home() {
       <div className="relative z-10 bg-white">
         <SectionTracker id="hero" setActiveSection={setActiveSection}>
           <Hero />
-        </SectionTracker>
-
-        <SectionTracker id="philosophy" setActiveSection={setActiveSection}>
-          <PhilosophySection />
         </SectionTracker>
 
         <SectionTracker id="model1" setActiveSection={setActiveSection}>
