@@ -43,7 +43,7 @@ export default function Home() {
 
   // Define exact "docking" states for the chair for each section
   const chairVariants = isMobile ? {
-    hero: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0 },
+    hero: { scale: 0.8, x: "0vw", y: "25vh", rotate: 0 },
     booking: { scale: 0.6, x: "0vw", y: "-10vh", rotate: -5 },
     model1: { scale: 0.7, x: "0vw", y: "-5vh", rotate: -5 },
     model2: { scale: 0.5, x: "0vw", y: "15vh", rotate: 10 },
@@ -54,7 +54,7 @@ export default function Home() {
     footer: { scale: 0.8, x: "0vw", y: "15vh", rotate: 0 } 
   } : {
 
-    hero: { scale: 1, x: "0vw", y: "0vh", rotate: 0 },
+    hero: { scale: 1, x: "0vw", y: "20vh", rotate: 0 },
     booking: { scale: 0.7, x: "-25vw", y: "0vh", rotate: -5 },
     model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5 },
     model2: { scale: 0.6, x: "25vw", y: "-5vh", rotate: 10 },
@@ -125,9 +125,9 @@ export default function Home() {
       </div>
 
       {/* CURTAIN REVEAL FOOTER */}
-      <div className="relative h-[80vh] md:h-[60vh] clip-path-footer pointer-events-none">
+      <div className="relative h-auto md:h-[60vh] pointer-events-none">
         <SectionTracker id="footer" setActiveSection={setActiveSection} amount={0.1}>
-          <div className="fixed bottom-0 left-0 w-full z-0 flex flex-col justify-end h-screen pointer-events-auto">
+          <div className="relative md:fixed bottom-0 left-0 w-full z-0 flex flex-col justify-end min-h-screen md:h-screen pointer-events-auto clip-path-footer-md">
             <Footer />
           </div>
         </SectionTracker>

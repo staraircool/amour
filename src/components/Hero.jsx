@@ -90,7 +90,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute top-[30%] md:top-[40%] left-[2%] md:left-[8%] w-28 md:w-64 aspect-square pointer-events-auto group"
+          className="absolute top-[30%] md:top-[40%] left-[2%] md:left-[8%] w-36 md:w-64 aspect-square pointer-events-auto group z-30"
         >
           <div className="w-full h-full p-1.5 md:p-2 bg-white/40 backdrop-blur-xl rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-bl-[2rem] md:rounded-bl-[4rem] rounded-tl-xl md:rounded-tl-[1.5rem] rounded-br-xl md:rounded-br-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/60 group-hover:border-white transition-colors">
             <video
@@ -112,7 +112,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-24 md:w-56 aspect-[3/4] pointer-events-auto group"
+          className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-32 md:w-56 aspect-[3/4] pointer-events-auto group z-30"
         >
           {/* CENTERED BORDER FIX: Removed offset translations */}
           <div className="absolute -inset-2 md:-inset-3 border border-white/60 rounded-[1.5rem] md:rounded-[2rem] z-0 transition-transform group-hover:scale-105 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>

@@ -68,7 +68,7 @@ export default function Header() {
                 Enhance your <span className="italic text-pink-300 font-serif">experience.</span>
               </h3>
               <p className="text-sm text-[#64748B] mb-8 leading-relaxed">
-                We have curated a beautiful ambient soundtrack for your visit. Would you like to play music?
+                Would you like to play music?
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button 
