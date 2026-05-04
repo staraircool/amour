@@ -1,125 +1,131 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, Heart } from "lucide-react";
 import Image from "next/image";
-
-const Marquee = ({ text }) => {
-  return (
-    <div className="relative w-full overflow-hidden flex whitespace-nowrap opacity-50 py-4 border-y border-white/10 my-8">
-      <motion.div
-        className="flex space-x-10 items-center"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ ease: "linear", duration: 20, repeat: Infinity }}
-      >
-        {[...Array(8)].map((_, i) => (
-          <span key={i} className="text-4xl md:text-5xl font-black uppercase tracking-widest text-white shrink-0">
-            {text} <span className="mx-4 text-white/30">•</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen bg-[#070707] text-white overflow-hidden flex flex-col justify-center items-center pt-24 md:pt-0">
-      
-      {/* Background Noise/Texture */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pt-10">
-        
-        {/* Main Title Top */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center z-20 mb-[-3rem] md:mb-[-6rem]"
+    <section className="relative w-full h-screen bg-[#A3B1AA] overflow-hidden flex flex-col justify-between">
+      {/* Background Center Image with edge fading */}
+      <div className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
+        <div 
+          className="relative w-full max-w-4xl h-full"
+          style={{
+            maskImage: "linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%)",
+          }}
         >
-          <h1 className="text-[18vw] md:text-[14vw] font-black uppercase tracking-tighter leading-none mix-blend-difference text-white">
-            AMOUR
+          <img
+            src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/center.png"
+            alt="Amour Model"
+            className="w-full h-full object-cover opacity-90 blur-[2px]"
+          />
+        </div>
+      </div>
+
+      {/* Header */}
+      <header className="relative z-10 w-full px-8 py-6 flex justify-between items-center">
+        <div className="flex-1"></div> {/* Spacer to center the logo */}
+        
+        {/* Center Logo */}
+        <div className="flex flex-col items-center justify-center flex-1">
+          <h1 className="text-4xl tracking-widest font-light text-black lowercase">
+            a m o u r
           </h1>
-        </motion.div>
-
-        {/* Center Gallery Area */}
-        <div className="relative w-full max-w-[1400px] mx-auto flex items-center justify-center h-[45vh] md:h-[60vh] mt-4 md:mt-10 px-4">
-          
-          {/* Left Video */}
-          <motion.div 
-            initial={{ opacity: 0, x: -60, y: 40, rotate: -6 }}
-            animate={{ opacity: 1, x: 0, y: 0, rotate: -3 }}
-            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-2 md:left-[10%] top-[10%] md:top-[15%] w-[130px] md:w-[260px] aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 border border-white/10"
-          >
-            <video 
-              src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video1.mp4" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          {/* Center Image */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.85, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-[220px] md:w-[380px] aspect-[3/4] rounded-t-full rounded-b-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20 border border-white/20 bg-zinc-900"
-          >
-            <Image 
-              src="/assets/images/center.png" 
-              alt="Amour Salon Style" 
-              fill 
-              className="object-cover"
-              priority
-            />
-            {/* Gradient overlay to add depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
-          </motion.div>
-
-          {/* Right Video */}
-          <motion.div 
-            initial={{ opacity: 0, x: 60, y: -40, rotate: 6 }}
-            animate={{ opacity: 1, x: 0, y: 0, rotate: 3 }}
-            transition={{ duration: 1.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-2 md:right-[10%] bottom-[10%] md:bottom-[15%] w-[140px] md:w-[280px] aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 border border-white/10"
-          >
-            <video 
-              src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video2.mp4" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+          <p className="text-[10px] tracking-widest text-gray-700 mt-1 uppercase">
+            hair salon & styling
+          </p>
         </div>
 
-        {/* Main Title Bottom */}
+        {/* Right Icon */}
+        <div className="flex-1 flex justify-end">
+          <svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="black" strokeWidth="1.5" className="opacity-80">
+            <path d="M0 10 Q 10 0, 20 10 T 40 10" />
+            <path d="M0 15 Q 10 5, 20 15 T 40 15" />
+          </svg>
+        </div>
+      </header>
+
+      {/* Middle Content: Typography & Videos */}
+      <div className="relative z-10 flex-1 w-full h-full pointer-events-none">
+        
+        {/* Center Typography */}
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-24 md:pb-32">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-black text-center leading-[1.1]">
+            Beautiful hair? <br />
+            It is easy and <br />
+            wonderfull!
+          </h2>
+          <p className="text-gray-700 mt-6 tracking-wide text-sm font-light">
+            36B Lê Thị Riêng phường Bến Thành Quận 1, Ho Chi Minh City
+          </p>
+        </div>
+
+        {/* Left Video Card */}
         <motion.div 
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center z-20 mt-[-2rem] md:mt-[-5rem]"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute top-[10%] left-[2%] md:left-[5%] w-48 md:w-72 aspect-square rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl pointer-events-auto group border-4 border-white/10"
         >
-          <h1 className="text-[14vw] md:text-[10vw] font-black uppercase tracking-tight leading-none text-white/90 drop-shadow-lg">
-            HAIR SALON
-          </h1>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover scale-[1.02]"
+            src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video1.mp4"
+          />
+          {/* Arrow Button */}
+          <div className="absolute top-4 right-4 w-10 h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-black transition-colors">
+            <ArrowUpRight className="w-5 h-5 text-white" />
+          </div>
         </motion.div>
 
-        {/* Marquee */}
+        {/* Right Video Card */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="w-full mt-10 md:mt-16 z-30"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="absolute top-[25%] md:top-[35%] right-[2%] md:right-[5%] w-40 md:w-64 aspect-[3/4] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl pointer-events-auto group border-4 border-white/10"
         >
-          <Marquee text="BEAUTIFUL HAIR IS EASY AND WONDERFUL" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover scale-[1.02]"
+            src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video2.mp4"
+          />
+          {/* Heart Button */}
+          <div className="absolute bottom-4 left-4 w-10 h-10 md:w-12 md:h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-black transition-colors">
+            <Heart className="w-5 h-5 text-white" />
+          </div>
         </motion.div>
+      </div>
 
+      {/* Bottom Left CTA */}
+      <div className="absolute bottom-12 left-6 md:left-10 z-20 flex flex-col items-start gap-4">
+        <p className="text-black text-sm font-medium w-40 md:w-48 leading-snug">
+          Would you like to schedule an appointment?
+        </p>
+        <button className="bg-black text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+          book online
+        </button>
+      </div>
+
+      {/* Marquee (Subtle at the very bottom) */}
+      <div className="absolute bottom-0 w-full overflow-hidden whitespace-nowrap bg-black/5 py-1 z-20 border-t border-black/10">
+        <motion.div 
+          className="flex gap-10 items-center text-[10px] uppercase tracking-[0.3em] text-gray-800 font-medium"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ ease: "linear", duration: 25, repeat: Infinity }}
+        >
+          {Array(10).fill("AMOUR HAIR SALON • LUXURY STYLING • EXPERT COLORING • ").map((text, i) => (
+            <span key={i}>{text}</span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
