@@ -21,7 +21,7 @@ export default function ModelTwoSection() {
     <section ref={container} className="relative w-full min-h-[150vh] bg-[#F0F9FF] text-[#0F172A] py-32 overflow-hidden flex flex-col items-center justify-center">
       
       {/* Background Soft Gradients */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[#E0F2FE]/50 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#E0F2FE]/50 to-transparent rounded-full pointer-events-none" />
 
       {/* Typography Header */}
       <div className="text-center z-30 mb-32 relative">

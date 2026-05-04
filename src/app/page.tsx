@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import BookingSection from "@/components/BookingSection";
 import ModelOneSection from "@/components/ModelOneSection";
 import ModelTwoSection from "@/components/ModelTwoSection";
 import ModelThreeSection from "@/components/ModelThreeSection";
@@ -31,6 +33,7 @@ export default function Home() {
   // Define exact "docking" states for the chair for each section
   const chairVariants = {
     hero: { scale: 1, x: "0vw", y: "0vh", rotate: 0 },
+    booking: { scale: 0.7, x: "-25vw", y: "0vh", rotate: -5 },
     model1: { scale: 0.8, x: "0vw", y: "5vh", rotate: -5 },
     model2: { scale: 0.6, x: "25vw", y: "-5vh", rotate: 10 },
     model3: { scale: 0.8, x: "-25vw", y: "5vh", rotate: -10 },
@@ -41,7 +44,9 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full bg-[#FAFAFA] relative">
+    <>
+      <Header />
+      <main className="w-full bg-[#FAFAFA] relative">
       
       {/* GLOBAL FLOATING CHAIR (SPRING DOCKING SYSTEM) */}
       <motion.div 
@@ -66,6 +71,10 @@ export default function Home() {
       <div className="relative z-10 bg-white">
         <SectionTracker id="hero" setActiveSection={setActiveSection}>
           <Hero />
+        </SectionTracker>
+
+        <SectionTracker id="booking" setActiveSection={setActiveSection} amount={0.3}>
+          <BookingSection />
         </SectionTracker>
 
         <SectionTracker id="model1" setActiveSection={setActiveSection}>
@@ -101,7 +110,7 @@ export default function Home() {
           </div>
         </SectionTracker>
       </div>
-
     </main>
+    </>
   );
 }

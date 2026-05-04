@@ -17,11 +17,11 @@ export default function ModelOneSection() {
   const y3 = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section ref={container} className="relative w-full min-h-[150vh] bg-[#FFF0F5] text-[#334155] py-32 overflow-hidden flex items-center">
+    <section ref={container} className="relative w-full min-h-[150vh] bg-[#FFF0F5] text-[#0F172A] py-32 overflow-hidden flex items-center">
       
       {/* Background Soft Gradients */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-white/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-[#E0F2FE]/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-200/40 to-transparent rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/30 to-transparent rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-12 relative z-10 w-full h-full flex flex-col md:flex-row items-center justify-between gap-12">
         

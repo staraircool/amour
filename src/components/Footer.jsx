@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#FAFAFA] text-[#0F172A] pt-24 pb-12 border-t border-gray-200 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-gradient-to-br from-pink-100/50 to-blue-50/50 rounded-full blur-[100px] pointer-events-none z-0"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-100/50 via-blue-50/50 to-transparent rounded-full pointer-events-none z-0"></div>
 
       <div className="max-w-[90rem] mx-auto px-4 md:px-10 flex flex-col relative z-10 min-h-[50vh]">
         

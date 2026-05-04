@@ -21,12 +21,12 @@ export default function Hero() {
         <motion.div 
           animate={{ opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vh] bg-gradient-to-br from-pink-200/50 via-pink-100/10 to-transparent transform -rotate-12 blur-[60px]"
+          className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vh] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-200/50 via-pink-100/10 to-transparent transform -rotate-12"
         />
         <motion.div 
           animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -top-[10%] left-[20%] w-[60vw] h-[100vh] bg-gradient-to-br from-blue-200/40 via-blue-100/5 to-transparent transform -rotate-45 blur-[80px]"
+          className="absolute -top-[10%] left-[20%] w-[60vw] h-[100vh] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-200/40 via-blue-100/5 to-transparent transform -rotate-45"
         />
       </div>
 
@@ -47,10 +47,10 @@ export default function Hero() {
               ease: "easeInOut",
               delay: i * 2,
             }}
-            className="absolute bg-white rounded-full blur-[8px]"
+            className="absolute bg-white rounded-full opacity-50"
             style={{
-              width: `${Math.random() * 30 + 10}px`,
-              height: `${Math.random() * 30 + 10}px`,
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`,
               left: `${10 + Math.random() * 80}%`,
               top: `${40 + Math.random() * 40}%`,
             }}
@@ -58,24 +58,7 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* 2. Header (Clean Dark Text for Sky Contrast) */}
-      <header className="relative z-20 w-full px-8 py-6 flex justify-between items-center text-[#1E293B]">
-        <div className="flex-1"></div>
-        <div className="flex flex-col items-center justify-center flex-1">
-          <h1 className="text-4xl tracking-widest font-light lowercase drop-shadow-sm">
-            a m o u r
-          </h1>
-          <p className="text-[10px] tracking-widest opacity-70 mt-1 uppercase font-medium">
-            hair salon & styling
-          </p>
-        </div>
-        <div className="flex-1 flex justify-end">
-          <svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-80">
-            <path d="M0 10 Q 10 0, 20 10 T 40 10" />
-            <path d="M0 15 Q 10 5, 20 15 T 40 15" />
-          </svg>
-        </div>
-      </header>
+
 
 
 
@@ -88,8 +71,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* 5. Center Typography (Placed perfectly ON the smoke below the chair) */}
-      <div className="absolute bottom-[10%] md:bottom-[12%] inset-x-0 flex flex-col items-center justify-start z-20 pointer-events-none">
+      {/* 5. Center Typography (Moved to top to prevent chair overlap) */}
+      <div className="absolute top-[15%] md:top-[20%] inset-x-0 flex flex-col items-center justify-start z-20 pointer-events-none">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#0F172A] text-center leading-[1.1] drop-shadow-[0_2px_15px_rgba(255,255,255,1)]">
           Elevate your <br />
           <span className="font-medium italic text-[#0F172A]/80 drop-shadow-sm">aesthetic.</span>
@@ -107,19 +90,19 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute top-[30%] md:top-[40%] left-[2%] md:left-[8%] w-40 md:w-64 aspect-square pointer-events-auto group"
+          className="absolute top-[30%] md:top-[40%] left-[2%] md:left-[8%] w-28 md:w-64 aspect-square pointer-events-auto group"
         >
-          <div className="w-full h-full p-2 bg-white/40 backdrop-blur-xl rounded-tr-[4rem] rounded-bl-[4rem] rounded-tl-[1.5rem] rounded-br-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/60 group-hover:border-white transition-colors">
+          <div className="w-full h-full p-1.5 md:p-2 bg-white/40 backdrop-blur-xl rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-bl-[2rem] md:rounded-bl-[4rem] rounded-tl-xl md:rounded-tl-[1.5rem] rounded-br-xl md:rounded-br-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/60 group-hover:border-white transition-colors">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-xl rounded-br-xl"
+              className="w-full h-full object-cover rounded-tr-[1.8rem] md:rounded-tr-[3.5rem] rounded-bl-[1.8rem] md:rounded-bl-[3.5rem] rounded-tl-lg md:rounded-tl-xl rounded-br-lg md:rounded-br-xl"
               src="/hero-video1.mp4"
             />
           </div>
-          <div className="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 md:w-10 md:h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white border border-white transition-all shadow-lg group-hover:scale-110">
+          <div className="absolute top-2 right-2 md:top-6 md:right-6 w-8 h-8 md:w-10 md:h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white border border-white transition-all shadow-lg group-hover:scale-110">
             <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-[#0F172A]" />
           </div>
         </motion.div>
@@ -129,11 +112,11 @@ export default function Hero() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-32 md:w-56 aspect-[3/4] pointer-events-auto group"
+          className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-24 md:w-56 aspect-[3/4] pointer-events-auto group"
         >
           {/* CENTERED BORDER FIX: Removed offset translations */}
-          <div className="absolute -inset-3 border border-white/60 rounded-[2rem] z-0 transition-transform group-hover:scale-105 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>
-          <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/40">
+          <div className="absolute -inset-2 md:-inset-3 border border-white/60 rounded-[1.5rem] md:rounded-[2rem] z-0 transition-transform group-hover:scale-105 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>
+          <div className="relative z-10 w-full h-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl border border-white/40">
             <video
               autoPlay
               loop
@@ -142,7 +125,7 @@ export default function Hero() {
               className="w-full h-full object-cover"
               src="/hero-video2.mp4"
             />
-            <div className="absolute bottom-4 left-4 w-8 h-8 md:w-12 md:h-12 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-colors border border-white shadow-lg group-hover:scale-110">
+            <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 w-8 h-8 md:w-12 md:h-12 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-colors border border-white shadow-lg group-hover:scale-110">
               <Heart className="w-4 h-4 md:w-5 md:h-5 text-[#0F172A]" />
             </div>
           </div>
