@@ -91,32 +91,13 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* 4. Real Cloud Image Smoke across the bottom */}
-      <div className="absolute bottom-[-5%] md:bottom-[-10%] inset-x-0 z-[10] pointer-events-none flex items-end overflow-hidden h-[50vh]">
-        <motion.div 
-          animate={{ x: ["0%", "-10%", "0%"] }} 
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 left-0 w-[150vw] md:w-[120vw] min-w-[1200px]"
-        >
-          <img 
-            src="/cloud.png" 
-            alt="Rolling Cloud" 
-            className="w-full h-auto object-cover opacity-95 drop-shadow-xl"
-          />
-        </motion.div>
-        
-        {/* Secondary layer to add more depth/volume */}
-        <motion.div 
-          animate={{ x: ["-5%", "5%", "-5%"] }} 
-          transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-5%] left-[-10%] w-[180vw] md:w-[150vw] min-w-[1500px]"
-        >
-          <img 
-            src="/cloud.png" 
-            alt="Rolling Cloud Foreground" 
-            className="w-full h-auto object-cover opacity-80 drop-shadow-lg"
-          />
-        </motion.div>
+      {/* 4. Real Cloud Image (Static, No Filters) */}
+      <div className="absolute bottom-0 left-0 right-0 z-[10] pointer-events-none flex items-end">
+        <img 
+          src="/cloud.png" 
+          alt="Clouds" 
+          className="w-full h-auto object-cover"
+        />
       </div>
 
       {/* 5. Center Typography (Placed perfectly ON the smoke below the chair) */}
