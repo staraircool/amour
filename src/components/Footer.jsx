@@ -9,83 +9,93 @@ export default function Footer() {
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-gradient-to-br from-pink-100/50 to-blue-50/50 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-10 flex flex-col relative z-10">
+      <div className="max-w-[90rem] mx-auto px-4 md:px-10 flex flex-col relative z-10 min-h-[50vh]">
         
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-12 mb-20 md:mb-32">
-          
-          <div className="flex-1">
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9] text-[#0F172A]">
-              Ready to Transform<br/>Your Look?
-            </h2>
-            <button className="group flex items-center gap-4 bg-[#0F172A] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-[#1E293B] transition-colors">
-              Book Appointment
-              <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
-            </button>
-          </div>
-
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 w-full">
-            <div className="flex flex-col gap-6">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#64748B]">Contact</h4>
-              <div className="flex flex-col gap-2">
-                <a href="tel:+84348815448" className="text-lg md:text-xl font-medium hover:text-[#0F172A]/70 transition-colors">
-                  <span className="text-[#64748B] text-sm block mb-1">Mobile</span>
-                  +84 34 881 5448
-                </a>
-                <a href="https://wa.me/84348815448" target="_blank" rel="noreferrer" className="text-lg md:text-xl font-medium hover:text-[#0F172A]/70 transition-colors mt-2">
-                  <span className="text-[#64748B] text-sm block mb-1">WhatsApp</span>
-                  +84 34 881 5448
-                </a>
-                <a href="mailto:amourhairsalon@gmail.com" className="text-lg md:text-xl font-medium hover:text-[#0F172A]/70 transition-colors mt-2 break-all">
-                  <span className="text-[#64748B] text-sm block mb-1">Email</span>
-                  amourhairsalon@gmail.com
-                </a>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#64748B]">Address</h4>
-              <p className="text-lg md:text-xl font-medium leading-relaxed text-[#0F172A]">
-                36B Lê Thị Riêng<br />
-                Phường Bến Thành<br />
-                Quận 1, Ho Chi Minh City<br />
-                Vietnam, 700000
-              </p>
-
-              <div className="mt-4">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-[#64748B] mb-3">Categories</h4>
-                <p className="text-lg font-medium text-[#0F172A]">Hair Salon</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Big Text */}
-        <div className="w-full border-t border-gray-200 pt-12 md:pt-16 mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 50 }}
+        {/* Top Section - CTA */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[15vw] md:text-[10vw] font-black uppercase tracking-tighter leading-none text-[#0F172A]"
+            className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-[#0F172A] mb-8 md:mb-0"
           >
-            AMOUR <span className="text-pink-200">SALON</span>
-          </motion.h1>
-
-          <div className="flex flex-col gap-2 text-left md:text-right">
-            <div className="text-sm font-bold tracking-widest text-[#0F172A] bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-              5K FOLLOWERS <span className="mx-2 text-[#64748B]">•</span> 8 FOLLOWING
-            </div>
-          </div>
+            Ready to Transform<br/>Your Look?
+          </motion.h2>
+          <motion.button 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="group flex items-center gap-4 bg-[#0F172A] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-pink-300 transition-colors"
+          >
+            Book Appointment
+            <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+          </motion.button>
         </div>
 
-        {/* Bottom */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest text-[#64748B] border-t border-gray-200 pt-8 gap-4 md:gap-0">
+        {/* Main Grid - Clearing the Center for the Chair */}
+        <div className="flex flex-col md:flex-row justify-between w-full flex-grow mt-10">
+          
+          {/* Left Side Info */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/3 flex flex-col gap-8"
+          >
+            <div className="flex flex-col gap-2">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-pink-400 mb-2">Contact</h4>
+              <a href="tel:+84348815448" className="text-xl font-medium hover:text-blue-400 transition-colors">
+                +84 34 881 5448
+              </a>
+              <a href="mailto:amourhairsalon@gmail.com" className="text-lg font-medium hover:text-blue-400 transition-colors mt-2 break-all">
+                amourhairsalon@gmail.com
+              </a>
+            </div>
+
+            <div>
+              <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mt-8 text-[#0F172A]">
+                AMOUR
+              </h1>
+            </div>
+          </motion.div>
+
+          {/* Center Empty Space - LANDING PAD FOR CHAIR */}
+          <div className="hidden md:block w-1/3 min-h-[300px]"></div>
+
+          {/* Right Side Info */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/3 flex flex-col gap-8 text-left md:text-right"
+          >
+            <div className="flex flex-col gap-2">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-2">Address</h4>
+              <p className="text-xl font-medium leading-relaxed text-[#0F172A]">
+                36B Lê Thị Riêng<br />
+                Phường Bến Thành<br />
+                Quận 1, HCMC
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col md:items-end gap-2">
+              <a href="#" className="text-sm font-bold tracking-widest uppercase hover:text-pink-400 transition-colors">Instagram</a>
+              <a href="#" className="text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">Facebook</a>
+            </div>
+            
+            <div className="mt-auto pt-8">
+              <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none text-pink-200">
+                SALON
+              </h1>
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="w-full flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-[#64748B] border-t border-gray-200 pt-8 mt-16">
           <p>&copy; {new Date().getFullYear()} AMOUR HAIR SALON.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-[#0F172A] transition-colors">Instagram</a>
-            <a href="#" className="hover:text-[#0F172A] transition-colors">Facebook</a>
-          </div>
+          <p>EST. 2024</p>
         </div>
 
       </div>
