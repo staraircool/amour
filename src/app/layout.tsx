@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScrolling from "@/components/SmoothScrolling";
-import Preloader from "@/components/Preloader";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "4AM Hair Studio | Futuristic Hair Art",
-  description: "Elevating your look with modern aesthetics and colorful vibrancy.",
+  title: "Amour Hair Salon | Premium Aesthetic Design",
+  description: "Elevating the standard of hair artistry with unparalleled service.",
 };
 
 export default function RootLayout({
@@ -19,8 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <Preloader />
-        <SmoothScrolling>{children}</SmoothScrolling>
+        {children}
       </body>
     </html>
   );
