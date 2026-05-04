@@ -3,115 +3,124 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const Marquee = ({ text }) => {
+  return (
+    <div className="relative w-full overflow-hidden flex whitespace-nowrap opacity-50 py-4 border-y border-white/10 my-8">
+      <motion.div
+        className="flex space-x-10 items-center"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ ease: "linear", duration: 20, repeat: Infinity }}
+      >
+        {[...Array(8)].map((_, i) => (
+          <span key={i} className="text-4xl md:text-5xl font-black uppercase tracking-widest text-white shrink-0">
+            {text} <span className="mx-4 text-white/30">•</span>
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Hero() {
   return (
-    <section className="relative w-full h-[100svh] flex flex-col justify-center bg-black text-white overflow-hidden px-4 md:px-10">
+    <section className="relative w-full min-h-screen bg-[#070707] text-white overflow-hidden flex flex-col justify-center items-center pt-24 md:pt-0">
       
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image 
-          src="/assets/images/hero.jpg" 
-          alt="Hero Background" 
-          fill 
-          className="object-cover opacity-60" 
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+      {/* Background Noise/Texture */}
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
-      {/* Background Texture/Noise */}
-      <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none z-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-
-      {/* Hero Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pt-10">
+        
+        {/* Main Title Top */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 overflow-hidden"
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center z-20 mb-[-3rem] md:mb-[-6rem]"
         >
-          <p className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white/70">
-            Est. 2024 — Mastery in Every Cut
-          </p>
+          <h1 className="text-[18vw] md:text-[14vw] font-black uppercase tracking-tighter leading-none mix-blend-difference text-white">
+            AMOUR
+          </h1>
         </motion.div>
 
-        <motion.h1 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.05, delayChildren: 2.5 }
-            }
-          }}
-          className="text-[14vw] md:text-[9vw] font-black tracking-tighter uppercase leading-[0.85] flex flex-col text-white/70 mix-blend-difference"
+        {/* Center Gallery Area */}
+        <div className="relative w-full max-w-[1400px] mx-auto flex items-center justify-center h-[45vh] md:h-[60vh] mt-4 md:mt-10 px-4">
+          
+          {/* Left Video */}
+          <motion.div 
+            initial={{ opacity: 0, x: -60, y: 40, rotate: -6 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: -3 }}
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute left-2 md:left-[10%] top-[10%] md:top-[15%] w-[130px] md:w-[260px] aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 border border-white/10"
+          >
+            <video 
+              src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video1.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* Center Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-[220px] md:w-[380px] aspect-[3/4] rounded-t-full rounded-b-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20 border border-white/20 bg-zinc-900"
+          >
+            <Image 
+              src="/assets/images/center.png" 
+              alt="Amour Salon Style" 
+              fill 
+              className="object-cover"
+              priority
+            />
+            {/* Gradient overlay to add depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+          </motion.div>
+
+          {/* Right Video */}
+          <motion.div 
+            initial={{ opacity: 0, x: 60, y: -40, rotate: 6 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: 3 }}
+            transition={{ duration: 1.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute right-2 md:right-[10%] bottom-[10%] md:bottom-[15%] w-[140px] md:w-[280px] aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 border border-white/10"
+          >
+            <video 
+              src="https://varpec.sfo3.cdn.digitaloceanspaces.com/amour/hero-video2.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+
+        {/* Main Title Bottom */}
+        <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center z-20 mt-[-2rem] md:mt-[-5rem]"
         >
-          <span className="flex overflow-hidden">
-            {["T", "H", "E", "\u00A0", "#", "1"].map((char, i) => (
-              <motion.span
-                key={`line1-${i}`}
-                variants={{
-                  hidden: { y: "100%", opacity: 0 },
-                  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
-          <span className="flex overflow-hidden text-white/40">
-            {["S", "A", "L", "O", "N", "\u00A0", "I", "N"].map((char, i) => (
-              <motion.span
-                key={`line2-${i}`}
-                variants={{
-                  hidden: { y: "100%", opacity: 0 },
-                  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
-          <span className="flex overflow-hidden">
-            {["H", "O", "\u00A0", "C", "H", "I", "\u00A0", "M", "I", "N", "H"].map((char, i) => (
-              <motion.span
-                key={`line3-${i}`}
-                variants={{
-                  hidden: { y: "100%", opacity: 0 },
-                  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
-        </motion.h1>
-        
-        <motion.div
+          <h1 className="text-[14vw] md:text-[10vw] font-black uppercase tracking-tight leading-none text-white/90 drop-shadow-lg">
+            HAIR SALON
+          </h1>
+        </motion.div>
+
+        {/* Marquee */}
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 3.5 }}
-          className="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 border-t border-white/20 pt-10"
+          transition={{ duration: 1, delay: 0.8 }}
+          className="w-full mt-10 md:mt-16 z-30"
         >
-          <p className="text-lg md:text-xl text-white/60 max-w-lg font-medium leading-relaxed">
-            Elevating the standard of hair artistry. A sanctuary of modern aesthetics, precision tailoring, and unparalleled service.
-          </p>
-          <button className="group relative px-10 py-5 bg-white text-black font-bold uppercase tracking-widest overflow-hidden rounded-full hover:scale-[1.02] transition-transform duration-300">
-            <span className="relative z-10 transition-colors">Book Appointment</span>
-          </button>
+          <Marquee text="BEAUTIFUL HAIR IS EASY AND WONDERFUL" />
         </motion.div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 4, duration: 1 }}
-        className="absolute bottom-10 right-10 flex flex-col items-center gap-4"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ writingMode: 'vertical-rl' }}>Scroll to Explore</span>
-      </motion.div>
+      </div>
     </section>
   );
 }

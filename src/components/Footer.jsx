@@ -1,71 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white pt-32 pb-10 border-t border-black/20">
-      <div className="max-w-7xl mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between gap-20">
+    <footer className="w-full bg-[#0a0a0a] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
+      {/* Background Noise/Texture */}
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-10 flex flex-col relative z-10">
         
-        {/* Contact Info */}
-        <div className="w-full md:w-1/2 flex flex-col">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-black leading-none"
-          >
-            4AM <br/>
-            Studio
-          </motion.h2>
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-12 mb-20 md:mb-32">
+          
+          <div className="flex-1">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
+              Ready to Transform<br/>Your Look?
+            </h2>
+            <button className="group flex items-center gap-4 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors">
+              Book Appointment
+              <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+            </button>
+          </div>
 
-          <div className="mt-16 flex flex-col gap-8">
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-black/50 mb-2">Location</h4>
-              <p className="text-2xl font-medium text-black">
-                29 Nguyễn Văn Tráng<br />
-                District 1, Ho Chi Minh City<br />
-                Vietnam
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 w-full">
+            <div className="flex flex-col gap-6">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-white/40">Contact</h4>
+              <div className="flex flex-col gap-2">
+                <a href="tel:+84348815448" className="text-lg md:text-xl font-medium hover:text-white/70 transition-colors">
+                  <span className="text-white/50 text-sm block mb-1">Mobile</span>
+                  +84 34 881 5448
+                </a>
+                <a href="https://wa.me/84348815448" target="_blank" rel="noreferrer" className="text-lg md:text-xl font-medium hover:text-white/70 transition-colors mt-2">
+                  <span className="text-white/50 text-sm block mb-1">WhatsApp</span>
+                  +84 34 881 5448
+                </a>
+                <a href="mailto:amourhairsalon@gmail.com" className="text-lg md:text-xl font-medium hover:text-white/70 transition-colors mt-2 break-all">
+                  <span className="text-white/50 text-sm block mb-1">Email</span>
+                  amourhairsalon@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-white/40">Address</h4>
+              <p className="text-lg md:text-xl font-medium leading-relaxed text-white/90">
+                36B Lê Thị Riêng<br />
+                Phường Bến Thành<br />
+                Quận 1, Ho Chi Minh City<br />
+                Vietnam, 700000
               </p>
-            </div>
 
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-black/50 mb-2">Booking</h4>
-              <a href="#" className="text-2xl font-bold text-black hover:text-black/60 transition-colors relative inline-block group">
-                hello@4amhairstudio.com
-                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </a>
-            </div>
-            
-            <div className="flex gap-6 mt-4">
-              <a href="https://www.instagram.com/4amhairstudio/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all text-sm font-bold">
-                IG
-              </a>
-              <a href="https://www.facebook.com/4amhairstudio/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all text-sm font-bold">
-                FB
-              </a>
+              <div className="mt-4">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3">Categories</h4>
+                <p className="text-lg font-medium">Hair Salon</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Map */}
-        <div className="w-full md:w-1/2 h-[500px] relative rounded-none overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-black/10">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.531238965868!2d106.6912389146222!3d10.769186992326558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3e8f85f543%3A0x4c278fb12f45ea0f!2s29%20Nguy%E1%BB%85n%20V%C4%83n%20Tr%C3%A1ng%2C%20Ph%C6%B0%E1%BB%9Dng%20B%E1%BA%BFn%20Th%C3%A0nh%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh%2C%20Vietnam!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 w-full h-full"
-          ></iframe>
-        </div>
-      </div>
+        {/* Big Text */}
+        <div className="w-full border-t border-white/10 pt-12 md:pt-16 mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[15vw] md:text-[10vw] font-black uppercase tracking-tighter leading-none"
+          >
+            AMOUR <span className="text-white/20">SALON</span>
+          </motion.h1>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-10 mt-32 flex flex-col md:flex-row justify-between items-center text-sm font-bold uppercase tracking-widest text-black/40 border-t border-black/10 pt-10">
-        <p>&copy; {new Date().getFullYear()} 4AM HAIR STUDIO.</p>
-        <p>Architectural Precision</p>
+          <div className="flex flex-col gap-2 text-left md:text-right">
+            <div className="text-sm font-bold tracking-widest text-white/80 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+              5K FOLLOWERS <span className="mx-2 opacity-50">•</span> 8 FOLLOWING
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="w-full flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest text-white/40 border-t border-white/10 pt-8 gap-4 md:gap-0">
+          <p>&copy; {new Date().getFullYear()} AMOUR HAIR SALON.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Instagram</a>
+            <a href="#" className="hover:text-white transition-colors">Facebook</a>
+          </div>
+        </div>
+
       </div>
     </footer>
   );
