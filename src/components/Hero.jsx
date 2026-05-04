@@ -91,8 +91,8 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* 4. Real Cloud Image (Static, No Filters) */}
-      <div className="absolute bottom-0 left-0 right-0 z-[10] pointer-events-none flex items-end">
+      {/* 4. Real Cloud Image (Static, Lowered to cover only legs) */}
+      <div className="absolute bottom-0 left-0 right-0 z-[10] pointer-events-none flex items-end translate-y-[25%] md:translate-y-[15%]">
         <img 
           src="/cloud.png" 
           alt="Clouds" 
@@ -143,7 +143,8 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           className="absolute top-[15%] md:top-[20%] right-[2%] md:right-[8%] w-32 md:w-56 aspect-[3/4] pointer-events-auto group"
         >
-          <div className="absolute -inset-3 border border-white/60 rounded-[2rem] transform translate-x-2 translate-y-2 md:translate-x-3 md:translate-y-3 z-0 transition-transform group-hover:translate-x-3 group-hover:translate-y-3 md:group-hover:translate-x-5 md:group-hover:translate-y-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>
+          {/* CENTERED BORDER FIX: Removed offset translations */}
+          <div className="absolute -inset-3 border border-white/60 rounded-[2rem] z-0 transition-transform group-hover:scale-105 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"></div>
           <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/40">
             <video
               autoPlay
