@@ -16,17 +16,17 @@ export default function Hero() {
         />
       </div>
 
-      {/* DESIGNER TOUCH 1: Volumetric God Rays */}
-      <div className="absolute top-0 left-0 w-full h-[80vh] z-[1] pointer-events-none overflow-hidden">
+      {/* DESIGNER TOUCH 1: Volumetric God Rays (Pastel Pink/Blue) */}
+      <div className="absolute top-0 left-0 w-full h-[80vh] z-[1] pointer-events-none overflow-hidden mix-blend-screen">
         <motion.div 
           animate={{ opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vh] bg-gradient-to-br from-white/60 via-white/10 to-transparent transform -rotate-12 blur-[60px]"
+          className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vh] bg-gradient-to-br from-pink-200/50 via-pink-100/10 to-transparent transform -rotate-12 blur-[60px]"
         />
         <motion.div 
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -top-[10%] left-[20%] w-[60vw] h-[100vh] bg-gradient-to-br from-white/40 via-white/5 to-transparent transform -rotate-45 blur-[80px]"
+          className="absolute -top-[10%] left-[20%] w-[60vw] h-[100vh] bg-gradient-to-br from-blue-200/40 via-blue-100/5 to-transparent transform -rotate-45 blur-[80px]"
         />
       </div>
 

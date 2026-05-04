@@ -24,19 +24,19 @@ export default function PhilosophySection() {
           
           <motion.div style={{ x: x1 }} className="whitespace-nowrap flex">
             <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10">
-              The Art of <span className="font-serif italic text-gray-300">Styling</span>
+              The Art of <span className="font-serif italic text-pink-200">Styling</span>
             </h2>
             <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10">
-              The Art of <span className="font-serif italic text-gray-300">Styling</span>
+              The Art of <span className="font-serif italic text-pink-200">Styling</span>
             </h2>
           </motion.div>
 
           <motion.div style={{ x: x2 }} className="whitespace-nowrap flex">
-            <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10 text-gray-200">
-              <span className="font-serif italic text-[#0F172A]">Masterful</span> Technique
+            <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10 text-gray-100">
+              <span className="font-serif italic text-blue-300">Masterful</span> Technique
             </h2>
-            <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10 text-gray-200">
-              <span className="font-serif italic text-[#0F172A]">Masterful</span> Technique
+            <h2 className="text-[15vw] md:text-[12vw] leading-none font-light tracking-tighter uppercase pr-10 text-gray-100">
+              <span className="font-serif italic text-blue-300">Masterful</span> Technique
             </h2>
           </motion.div>
 
